@@ -1,15 +1,12 @@
+
 // const info = require('./js/js-foundation/02-destructuring');
 
 // const email = require('./js/js-foundation/01-template');
-// const { getAge, getId, buildLogger } = require('./plugins');
+import { buildLogger } from './plugins/logger.plugin'; //getAge, getId, 
 // const { getUserById } = require('./js/js-foundation/03-callbacks');
-// const { getPokemonById } = require('./js/js-foundation/05-promises');
-// console.log(getPokemonById(876).then(res => {
-//     const { data } = res;
-//     console.log(data.name);
-// }));
-
-// const logger = buildLogger('app.js').error('Ocurrio un error');
+import { getPokemonById } from './js/js-foundation/05-promises';
+console.log(getPokemonById('10').then(data => console.log(data)));
+const logger = buildLogger('app.js').error('Ocurrio un error');
 
 
 // const { buildPerson } = require('./js/js-foundation/04-factory-functions');
@@ -29,3 +26,5 @@
 // console.log({person1: makePerson(obj)});
 
 
+
+console.log("Hello, world!");

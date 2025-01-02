@@ -1,9 +1,9 @@
-const axios = require('axios');
-const httpClientPlugin = {
-    get: async (url) => {
+import axios from 'axios';
+export const httpClientPlugin = {
+    get: async (url: string) => {
         return await axios.get(url);
     },
-    post: async (url, body) => {
+    post: async (url: string, body : {}) => {
         return await axios({
             method: 'POST',
             url: url,
@@ -13,7 +13,7 @@ const httpClientPlugin = {
             }
         });
     },
-    put: async (url, body) => {
+    put: async (url: string, body: {}) => {
         const res = await axios({
             method: 'PUT',
             url: url,
@@ -24,7 +24,7 @@ const httpClientPlugin = {
         });
         return res;
     },
-    delete: async (url) => {
+    delete: async (url: string) => {
         const res = await axios({
             method: 'DELETE',
             headers: {
@@ -34,7 +34,3 @@ const httpClientPlugin = {
         return res;
     }
 }
-module.exports = {
-    http: httpClientPlugin,
-
-};
