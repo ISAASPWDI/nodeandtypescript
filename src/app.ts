@@ -9,10 +9,10 @@ import { ServerApp } from "./presentation/server-app";
 
 async function main() {
 
-  const { b: base, l: limit, s: showTable, n: fileName, d: fileDestination } = yarg;
+  const { b: base, l: limit, s: showTable } = yarg;
 
-
-  ServerApp.run({ base, limit, showTable, fileName, fileDestination });
+  ServerApp.run({ base , limit, showTable  });
+  
 
 }
 

@@ -4,10 +4,10 @@ import { hideBin } from 'yargs/helpers';
 
 export const yarg = yargs(hideBin(process.argv) )
   .option('b', {
-    alias: 'base',
-    type: 'number',
-    demandOption: true,
-    describe: 'Multiplication table base'
+    alias: 'base', //nombre
+    type: 'number', //tipo 
+    demandOption: true, //obligatorio
+    describe: 'Multiplication table base' //descripcion
   })
   .option('l', {
     alias: 'limit',
@@ -34,9 +34,8 @@ export const yarg = yargs(hideBin(process.argv) )
     describe: 'File destination'
   })
   .check(( argv, options ) => {
-
-    if ( argv.b < 1 ) throw 'Error: base must be greater than 0';
-
+    if ( argv.b < 1 ) throw 'Error: base must be a positive number';
+    if ( argv.l > 20 ) throw 'Error: limit must be a number between 1 and 20';
     return true;
   })
   .parseSync()

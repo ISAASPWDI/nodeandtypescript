@@ -2,6 +2,8 @@ import fs from 'fs';
 import { yarg } from './config/plugins/args.plugin';
 
 const { b:base, l:limit, s:showTable } = yarg;
+ 
+
 let outputMessage = '';
 const headerMessage = `
 ==================================
