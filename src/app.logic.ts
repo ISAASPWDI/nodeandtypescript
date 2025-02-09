@@ -1,7 +1,7 @@
 import fs from 'fs';
 import { yarg } from './config/plugins/args.plugin';
 
-const { b:base, l:limit, s:showTable } = yarg;
+const { b:base, l:limit, s:showTable, n: name, d: outputPath } = yarg;
  
 
 let outputMessage = '';
@@ -21,11 +21,11 @@ if ( showTable ) {
   console.log(outputMessage);
 }
 
-const outputPath = `outputs`;
+// const outputPath = `outputs`;
 
 
 fs.mkdirSync(outputPath, { recursive: true });
-fs.writeFileSync(`${ outputPath }/tabla-${ base }.txt`, outputMessage);
+fs.writeFileSync(`${ outputPath }/${ name }.txt`, outputMessage);
 console.log('File created!');
 
 // grabar en el archivo de salida

@@ -11,7 +11,7 @@ async function main() {
 
   const { b: base, l: limit, s: showTable } = yarg;
 
-  ServerApp.run({ base , limit, showTable  });
+  ServerApp.run({ base , limit, showTable });
   
 
 }

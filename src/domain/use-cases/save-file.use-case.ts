@@ -1,37 +1,22 @@
 import fs from 'fs';
-
 export interface SaveFileUseCase {
-  execute: (options: Options) => boolean;
+  execute: (options: SaveFileOptions) => boolean;
 }
-
-export interface Options {
+export interface SaveFileOptions {
   fileContent: string;
-  fileDestination?: string;
+  destination?: string;
   fileName?: string;
+  base : number;
 }
-
 
 export class SaveFile implements SaveFileUseCase {
+  constructor() {
 
-  constructor(
-    /** repository: StorageRepository */
-  ) { }
-
-  execute({ 
-    fileContent, 
-    fileDestination = 'outputs', 
-    fileName = 'table'
-}: Options): boolean {
-
-    try {
-      fs.mkdirSync(fileDestination, { recursive: true });
-      fs.writeFileSync(`${fileDestination}/${ fileName }.txt`, fileContent );
-      return true;
-      
-    } catch (error) {
-      console.error(error);
-      return false;
-    }
   }
-
+  execute({ fileContent, destination = 'outputs', fileName = 'table', base } : SaveFileOptions): boolean {
+    fs.mkdirSync(destination, { recursive: true });
+    fs.writeFileSync(`${destination}/${fileName}-${base}.txt`, fileContent);
+    console.log('File created!');
+    return true;
+  }
 }
